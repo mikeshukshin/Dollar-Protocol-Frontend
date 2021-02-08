@@ -1,17 +1,27 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { UseWalletProvider } from 'use-wallet';
-import Home from 'views/Home';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { UseWalletProvider } from "use-wallet";
+import Home from "views/Home";
+
+const GlobalStyle = createGlobalStyle`
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+}
+`;
 
 const NETWORK_ID = Number(process.env.NETWORK_ID) || 42;
 
 const App: React.FC = () => (
-  <UseWalletProvider
-    chainId={NETWORK_ID}
-    connectors={{
-      walletconnect: { rpcUrl: 'https://mainnet.eth.aragon.network/' },
-    }}
-  >
+  <ThemeProvider theme={{}}>
+    <UseWalletProvider
+      chainId={NETWORK_ID}
+      connectors={{
+        walletconnect: { rpcUrl: "https://mainnet.eth.aragon.network/" },
+      }}
+    >
       <Router>
         <Switch>
           <Route path="/" exact>
@@ -19,7 +29,9 @@ const App: React.FC = () => (
           </Route>
         </Switch>
       </Router>
-  </UseWalletProvider>
+    </UseWalletProvider>
+    <GlobalStyle />
+  </ThemeProvider>
 );
 
 export default App;
