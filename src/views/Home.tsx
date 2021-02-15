@@ -7,7 +7,7 @@ import {
   Tabs,
   Typography,
 } from "@material-ui/core";
-import { Governance, MiningDashboard, Prices } from "components";
+import { Bonds, MiningDashboard, Prices, Staking } from "components";
 
 const Home: React.FC = () => {
   const [value, setValue] = useState<number>(0);
@@ -30,12 +30,14 @@ const Home: React.FC = () => {
             aria-label="simple tabs example"
           >
             <Tab label="Mine Share" />
-            <Tab label="Governance" />
+            <Tab label="Stake" />
             <Tab label="Prices" />
+            <Tab label="Bonds" />
           </Tabs>
           {value === 0 && <MiningDashboard />}
-          {value === 1 && <Governance />}
+          {value === 1 && <Staking />}
           {value === 2 && <Prices />}
+          {value === 3 && <Bonds />}
         </CardContent>
       </Card>
     </Container>

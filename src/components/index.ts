@@ -1,6 +1,7 @@
-export {default as MiningDashboard} from "./MiningDashboard";
-export {default as Governance} from "./Governance";
-export {default as Prices} from "./Prices";
-export {default as PoolDetail} from "./PoolDetail";
-export {default as Info} from "./Info";
-export {default as Pools} from "./Pools";
+export { MiningDashboard } from "./MiningDashboard";
+export { Prices } from "./Prices";
+export { PoolDetail } from "./PoolDetail";
+export { Info } from "./Info";
+export { Pools } from "./Pools";
+export { Bonds } from "./Bonds";
+export { Staking } from "./Stake";
